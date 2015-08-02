@@ -8,21 +8,26 @@
     };
 
     templateEngine.addTemplate("ko_pager_links", "\
-        <div class='pager' data-bind='if: totalPages() > 1'>\
-            <span class='first-page-link'><a class='pager-button fa fa-fast-backward' data-bind='click: page.bind($data, 1), enable: page() > 1, css: {disabled: page() == 1}'></a></span>\
-            <span class='pager-pages' data-bind='foreach: relativePages'>\
-                <span class='pager-page'><a class='pager-button' href='#' data-bind='click: $parent.page.bind($parent, $data), text: $data, css: { selected: $parent.page() == $data }'></a></span>\
+        <div class='pager pagination' data-bind='if: totalPages() > 1'>\
+            <span class='first-page-link'>
+              <a class='pager-button fa fa-fast-backward' data-bind='click: page.bind($data, 1), enable: page() > 1, css: {disabled: page() == 1}'></a>
             </span>\
-            <span class='last-page-link'><a class='pager-button fa fa-fast-forward' data-bind='click: page.bind($data, totalPages()), enable: page() < totalPages(), css: { disabled: page() == totalPages() }'></a></span>\
+            <span class='pager-pages' data-bind='foreach: relativePages'>\
+                <span class='pager-page'>
+                  <a class='pager-button' href='#' data-bind='click: $parent.page.bind($parent, $data), text: $data, css: { selected: $parent.page() == $data }'></a>
+                </span>\
+            </span>\
+            <span class='last-page-link'>
+              <a class='pager-button fa fa-fast-forward' data-bind='click: page.bind($data, totalPages()), enable: page() < totalPages(), css: { disabled: page() == totalPages() }'></a></span>\
         </div>\
     ");
 
     templateEngine.addTemplate("ko_pager_size", "\
             <select class='pager-size' data-bind='value: itemsPerPage, enable: allowChangePageSize'>\
-                <option>10</option>\
-                <option>25</option>\
-                <option>50</option>\
-                <option>100</option>\
+                <option value="10">10 per page</option>\
+                <option value="25">25 per page</option>\
+                <option value="50">50 per page</option>\
+                <option value="100">100 per page</option>\
             </select>\
     ");
 
